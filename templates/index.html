@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airbnb Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f2f2f2;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Airbnb Log Price Predictor</h2>
+
+    <form method="POST">
+        <label>Property Type:</label>
+        <input type="text" name="property_type" required>
+
+        <label>Cleaning Fee:</label>
+        <input type="number" name="cleaning_fee" step="0.01" required>
+
+        <label>Review Scores Rating:</label>
+        <input type="number" name="review_scores_rating" step="0.1" required>
+
+        <label>Accommodates:</label>
+        <input type="number" name="accommodates" required>
+
+        <label>Beds:</label>
+        <input type="number" name="beds" required>
+
+        <label>Number of Reviews:</label>
+        <input type="number" name="number_of_reviews" required>
+
+        <label>Room Type:</label>
+        <input type="text" name="room_type" required>
+
+        <label>Neighbourhood:</label>
+        <input type="text" name="neighbourhood" required>
+
+        <label>Bedrooms:</label>
+        <input type="number" name="bedrooms" required>
+
+        <label>Bathrooms:</label>
+        <input type="number" step="0.5" name="bathrooms" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+
+</body>
+</html>
